@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     function index(){
-        return view('welcome');
+        $posts = \App\Post::where('user_id','>' ,7)->get();
+        return view('welcome', ['posts'=> $posts]);
     }
 }

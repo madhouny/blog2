@@ -17,8 +17,8 @@
 
 Route::get('/', 'HomeController@index');
 
-Route::get('/Articles', 'ArticleController@index');
+Route::get('/Articles', 'ArticleController@index')->name('articles');
 
-Route::get('/contact', 'ContactController@index');
+Route::get('/contact', 'ContactController@index')->name('contact');
 
 

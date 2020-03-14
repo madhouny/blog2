@@ -6,6 +6,7 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+
 class User extends Authenticatable
 {
     use Notifiable;
@@ -15,6 +16,14 @@ class User extends Authenticatable
      *
      * @var array
      */
+    /**
+     * Get the user posts'
+     */
+    public function posts()
+    {
+        return $this->hasMany('App\Post');
+    }
+
     protected $fillable = [
         'name', 'email', 'password',
     ];
