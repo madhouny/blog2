@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
+
     /**
      * Get the user that authored the post.
      */
@@ -13,5 +14,6 @@ class Post extends Model
     {
         return $this->belongsTo('App\User','user_id');
     }
+
 
 }

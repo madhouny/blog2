@@ -7,12 +7,13 @@
 
             <li>
 
-            <a class="btn btn-primary" href="{{route('show_articles', $post->post_name)}}">{{$post->title}}</a><br>
-            <hr>
+                <a class="btn btn-primary" href="{{route('articles.index', $post->post_name)}}">{{$post->title}}</a><br>
+                <hr>
 
             </li>
 
         @endforeach
     </ul>
 
-    @endsection
+@endsection
+
