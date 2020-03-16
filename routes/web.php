@@ -15,20 +15,26 @@
 //    return view('welcome');
 //});
 
-Route::get('/', 'HomeController@index')->name('home');
+//Route::group(['middleware'=>['web']], function (){
+    Route::get('/', 'HomeController@index')->name('home');
 
-//Route::resource('Articles', 'PostsController');
 
-Route::get('/Articles', 'ArticleController@index')->name('articles');
+    Route::get('/Articles', 'ArticleController@index')->name('articles');
 
-Route::get('/contact', 'ContactController@index')->name('contact');
+    Route::get('/contact', 'ContactController@index')->name('contact');
 
-Route::get('/Articles/{post_name}', 'ArticleController@show')->name('show_articles');
+    Route::get('/Articles/{post_name}', 'ArticleController@show')->name('show_articles');
 
-Route::post('/request','ContactController@ContactRequest')->name('Request');
+    Route::post('/request','ContactController@ContactRequest')->name('Request');
 
-Route::post('/signup','UserController@SignUp')->name('signup');
-Route::get('/sign','UserController@index')->name('sign');
+
+    Route::get('/sign','UserController@index')->name('sign');
+    Route::post('/signup','UserController@SignUp')->name('signup');
+    Route::post('/signin','UserController@SignIn')->name('signin');
+
+//});
+
+
 
 
 
