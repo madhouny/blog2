@@ -27,6 +27,9 @@ Route::get('/Articles/{post_name}', 'ArticleController@show')->name('show_articl
 
 Route::post('/request','ContactController@ContactRequest')->name('Request');
 
+Route::post('/signup','UserController@SignUp')->name('signup');
+Route::get('/sign','UserController@index')->name('sign');
+
 
 
 
