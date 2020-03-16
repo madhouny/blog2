@@ -19,6 +19,12 @@ class UserController extends Controller
 
 
     public function SignUp(Request $request){
+        // validating data before send them to db
+        $this->validate($request, [
+            'email'=>'required|email|unique:users',
+            'name'=>'required|max:120',
+            'password'=>'required|min:4'
+        ]);
         $email = $request['email'];
         $name = $request['name'];
         $password = bcrypt($request['password']);
@@ -36,6 +42,11 @@ class UserController extends Controller
     }
 
     public function SignIn(Request $request){
+        $this->validate($request, [
+            'email'=>'required',
+            'password'=>'required'
+        ]);
+
        if( Auth::attempt(['email'=>$request['email'], 'password'=>$request['password']])){
            return redirect()->route('home');
        }

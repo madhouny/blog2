@@ -12,6 +12,14 @@ class ContactController extends Controller
     }
 
     public function ContactRequest(Request $request){
+
+        // validating data before send them to db
+        $this->validate($request, [
+            'email'=>'required|email',
+            'name'=>'required|max:120',
+            'message'=>'required|min:10|max:1000'
+        ]);
+
         $email = $request['email'];
         $name = $request['name'];
         $message =$request['message'];
