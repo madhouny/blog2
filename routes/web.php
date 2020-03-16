@@ -20,10 +20,12 @@ Route::get('/', 'HomeController@index')->name('home');
 //Route::resource('Articles', 'PostsController');
 
 Route::get('/Articles', 'ArticleController@index')->name('articles');
-//
-//Route::get('/contact', 'ContactController@index')->name('contact');
-//
+
+Route::get('/contact', 'ContactController@index')->name('contact');
+
 Route::get('/Articles/{post_name}', 'ArticleController@show')->name('show_articles');
+
+Route::post('/request','ContactController@ContactRequest')->name('Request');
 
 
 
