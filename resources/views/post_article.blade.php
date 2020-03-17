@@ -12,12 +12,11 @@
             <a href="">Delete</a>
         </div>
 
-        <form action="">
+        <form action="{{route('comment')}}" method="post">
             <div class="form-group">
-               <textarea rows="5" aria-label="With textarea" cols="90" name="new-post" id="new-post"  placeholder="Add Comment"></textarea>
-
+                @csrf
+               <textarea rows="5" aria-label="With textarea" cols="90" name="body" id="new-post"  placeholder="Add Comment"></textarea>
             </div>
-
             <button type="submit" class="btn-primary">Add Comment</button>
         </form>
     </div>

@@ -39,6 +39,10 @@ Route::group(['middleware'=>['web']], function (){
     Route::post('/signup','UserController@SignUp')->name('signup');
     Route::post('/signin','UserController@SignIn')->name('signin');
 
+    Route::post('/createpost',[
+        'uses'=>'CommentaireController@CreateComment',
+        'as' =>'comment'
+    ]);
 });
 
 
