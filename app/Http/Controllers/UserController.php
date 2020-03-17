@@ -38,7 +38,7 @@ class UserController extends Controller
 
         Auth::login($user);
 
-        return redirect()->route('home');
+        return redirect()->route('articles');
     }
 
     public function SignIn(Request $request){
@@ -48,7 +48,7 @@ class UserController extends Controller
         ]);
 
        if( Auth::attempt(['email'=>$request['email'], 'password'=>$request['password']])){
-           return redirect()->route('home');
+           return redirect()->route('articles');
        }
 
        return redirect()->back();

@@ -1,13 +1,26 @@
+
+
 @extends('layouts.main')
 
 @section('content')
-<section>
-<p>{{$article->post_content}}</p>
-<div class="info">
-    Posted by {{$article->post_name}} on {{$article->created_at}}
-</div>
 
-</section>
+    <section>
+        <ul>
+            @foreach ( $posts as $post )
+
+                <li>
+
+                    <a  href="{{route('show_articles', $post->post_name)}}">{{$post->title}}</a><br>
+                    <hr>
+
+                </li>
+
+            @endforeach
+        </ul>
 
 
-    @endsection
+    </section>
+
+
+@endsection
+

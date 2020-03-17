@@ -15,13 +15,20 @@
 //    return view('welcome');
 //});
 
-//Route::group(['middleware'=>['web']], function (){
+Route::group(['middleware'=>['web']], function (){
     Route::get('/', 'HomeController@index')->name('home');
 
 
-    Route::get('/Articles', 'ArticleController@index')->name('articles');
+    Route::get('/Articles',[
 
-    Route::get('/contact', 'ContactController@index')->name('contact');
+    'uses'=> 'ArticleController@index',
+    'as'=>'articles',
+    'middleware'=>'auth']);
+
+    Route::get('/contact',[
+        'uses'=>'ContactController@index',
+    'as'=>'contact',
+    ]);
 
     Route::get('/Articles/{post_name}', 'ArticleController@show')->name('show_articles');
 
@@ -32,7 +39,7 @@
     Route::post('/signup','UserController@SignUp')->name('signup');
     Route::post('/signin','UserController@SignIn')->name('signin');
 
-//});
+});
 
 
 

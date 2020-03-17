@@ -8,14 +8,16 @@ class ArticleController extends Controller
 {
     public function index()
     {
-        return view('article');
+        $posts = \App\Post::all();
+        return view('article', ['posts'=> $posts]);
+
     }
 
     public function show($post_name)
     {
         $articles = \App\Post::where('post_name', $post_name)->first();
 
-        return view('article', array(
+        return view('post_article', array(
             'article' => $articles
         ));
 
