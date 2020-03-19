@@ -37,3 +37,26 @@
     border-right: 2px solid black;
     margin-bottom: 30px;
 }
+
+.error{
+    border : 1px solid #ff392f;
+    background-color: antiquewhite ;
+    color: red;
+}
+
+.error ul {
+    list-style: none;
+    margin: 0;
+    padding: 0 ;
+
+}
+
+.success{
+    border : 1px solid green;
+    background-color: darkseagreen ;
+    color: green;
+}
+
+.error, .success{
+    text-align: center;
+}
