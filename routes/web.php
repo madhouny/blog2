@@ -30,7 +30,7 @@ Route::group(['middleware'=>['web']], function (){
     'as'=>'contact',
     ]);
 
-    Route::get('/Articles/{post_name}', 'ArticleController@show')->name('show_articles');
+    Route::get('/Articles/{post_name}', 'CommentaireController@show')->name('show_articles');
 
     Route::post('/request','ContactController@ContactRequest')->name('Request');
 

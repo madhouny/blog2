@@ -7,6 +7,19 @@ use Illuminate\Http\Request;
 
 class CommentaireController extends Controller
 {
+
+    public function show($post_name)
+    {
+        $comments = Commentaire::all();
+        $articles = \App\Post::where('post_name', $post_name)->first();
+
+        return view('post_article', array(
+            'article' => $articles, 'comments'=>$comments
+        ));
+
+    }
+
+
     public function CreateComment(Request $request){
         //validation
             $this->validate($request, [

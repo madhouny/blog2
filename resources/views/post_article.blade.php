@@ -26,11 +26,13 @@
     <section class="row posts">
         <div class="col-md-6 col-md-offset-3">
             <header><h3>What other people say .. </h3></header>
+            @foreach($comments as $comment)
+
             <article class="post">
-                <p></p>
+                <p>{{$comment->body}}</p>
 
                 <div class="info">
-                    Posted by
+                    Posted by {{$comment->user->name}} on {{$comment->created_at}}
                 </div>
 
                 <div class="interaction">
@@ -40,21 +42,7 @@
                     <a href="">Delete</a>
                 </div>
             </article>
-
-            <article class="post">
-                <p></p>
-
-                <div class="info">
-                    Posted by
-                </div>
-
-                <div class="interaction">
-                    <a href="">Like</a>
-                    <a href="">DisLike</a>
-                    <a href="">Edit</a>
-                    <a href="">Delete</a>
-                </div>
-            </article>
+                @endforeach
         </div>
     </section>
 

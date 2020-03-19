@@ -9,9 +9,9 @@ use Illuminate\Support\Facades\Auth;
 class UserController extends Controller
 {
 
-    public function getDashbord(){
-        return view('welcome');
-    }
+//    public function getDashbord(){
+//        return view('welcome');
+//    }
 
     function index(){
     return view('sign');

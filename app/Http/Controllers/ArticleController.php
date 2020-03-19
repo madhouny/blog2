@@ -13,13 +13,4 @@ class ArticleController extends Controller
 
     }
 
-    public function show($post_name)
-    {
-        $articles = \App\Post::where('post_name', $post_name)->first();
-
-        return view('post_article', array(
-            'article' => $articles
-        ));
-
-    }
 }
