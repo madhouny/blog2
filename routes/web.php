@@ -41,7 +41,14 @@ Route::group(['middleware'=>['web']], function (){
 
     Route::post('/createpost',[
         'uses'=>'CommentaireController@CreateComment',
-        'as' =>'comment'
+        'as' =>'comment',
+        'middleware'=>'auth'
+    ]);
+
+    Route::get('/delete-comment/{comment_id}',[
+        'uses'=>'CommentaireController@getDelete',
+        'as'=>'comment.delete',
+        'middleware'=>'auth'
     ]);
 });
 

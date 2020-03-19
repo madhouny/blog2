@@ -39,7 +39,7 @@
                     <a href="">Like</a>
                     <a href="">DisLike</a>
                     <a href="">Edit</a>
-                    <a href="">Delete</a>
+                    <a href="{{route('comment.delete', ['comment_id'=>$comment->id])}}">Delete</a>
                 </div>
             </article>
                 @endforeach

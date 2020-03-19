@@ -37,4 +37,11 @@ class CommentaireController extends Controller
 
         return redirect()->back()->with(['message'=>$message]); // pour afficher le message
     }
+
+    public function getDelete($comment_id){
+            $comments = Commentaire::where('id', $comment_id)->first();
+            $comments->delete();
+            return redirect()->back()->with(['message'=>'Successfully deleted']);
+
+    }
 }
