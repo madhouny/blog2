@@ -38,8 +38,13 @@
                 <div class="interaction">
                     <a href="">Like</a>
                     <a href="">DisLike</a>
+
+
+                    @if(Auth::user() == $comment->user )
                     <a href="">Edit</a>
+
                     <a href="{{route('comment.delete', ['comment_id'=>$comment->id])}}">Delete</a>
+                        @endif
                 </div>
             </article>
                 @endforeach

@@ -1,8 +1,8 @@
 @extends('layouts.main')
 
 @section('content')
-    <h1>Our Blog</h1>
-    <h2 class="subheader">Such a Simple Blog Layout</h2>
+    <h1>My Blog</h1>
+    <h2 class="subheader">Title of articles</h2>
     <ul>
         @foreach ( $posts as $post )
 

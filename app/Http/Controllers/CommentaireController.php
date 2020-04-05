@@ -4,13 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Commentaire;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CommentaireController extends Controller
 {
 
     public function show($post_name)
     {
-        $comments = Commentaire::all();
+        $comments = Commentaire::orderBy('created_at', 'desc')->get();
         $articles = \App\Post::where('post_name', $post_name)->first();
 
         return view('post_article', array(
@@ -40,6 +41,9 @@ class CommentaireController extends Controller
 
     public function getDelete($comment_id){
             $comments = Commentaire::where('id', $comment_id)->first();
+            if(Auth::user() != $comments->user){
+                return redirect()->back();
+            }
             $comments->delete();
             return redirect()->back()->with(['message'=>'Successfully deleted']);
 

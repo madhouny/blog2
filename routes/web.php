@@ -32,6 +32,7 @@ Route::group(['middleware'=>['web']], function (){
 
     Route::get('/Articles/{post_name}', 'CommentaireController@show')->name('show_articles');
 
+
     Route::post('/request','ContactController@ContactRequest')->name('Request');
 
 
@@ -39,6 +40,10 @@ Route::group(['middleware'=>['web']], function (){
     Route::post('/signup','UserController@SignUp')->name('signup');
     Route::post('/signin','UserController@SignIn')->name('signin');
 
+    Route::get('/logout',[
+        'uses'=>'UserController@logout',
+        'as' =>'logout'
+    ]);
     Route::post('/createpost',[
         'uses'=>'CommentaireController@CreateComment',
         'as' =>'comment',
@@ -48,6 +53,12 @@ Route::group(['middleware'=>['web']], function (){
     Route::get('/delete-comment/{comment_id}',[
         'uses'=>'CommentaireController@getDelete',
         'as'=>'comment.delete',
+        'middleware'=>'auth'
+    ]);
+
+    Route::get('/delete-article/{article_id}',[
+        'uses'=>'ArticleController@DeleteArticle',
+        'as'=>'article.delete',
         'middleware'=>'auth'
     ]);
 });

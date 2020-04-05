@@ -14,7 +14,14 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">Contact</a>
             </li>
-
         </ul>
     </div>
+
+    <div class="collapse navbar-collapse ">
+        <ul class="navbar-right">
+            <li><a href="{{'logout'}}">Logout</a></li>
+            <li><a href="{{'sign'}}">JoinUs</a></li>
+        </ul>
+
+
 </nav>
